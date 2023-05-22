@@ -2,21 +2,21 @@ const startChangeColorBtn = document.querySelector('[data-start]');
 const stopChangeColorBtn = document.querySelector('[data-stop]');
 const body = document.querySelector('body');
 
-stopChangeColorBtn.setAttribute('disabled', '');
+stopChangeColorBtn.disabled = true;
 
 startChangeColorBtn.addEventListener('click', e => {
   timerId = setInterval(() => {
     body.style = `background-color: ${getRandomHexColor()}`;
   }, 1000);
 
-  startChangeColorBtn.setAttribute('disabled', '');
-  stopChangeColorBtn.removeAttribute('disabled', '');
+  startChangeColorBtn.disabled = true;
+  stopChangeColorBtn.disabled = false;
 });
 
 stopChangeColorBtn.addEventListener('click', e => {
   clearInterval(timerId);
-  startChangeColorBtn.removeAttribute('disabled', '');
-  stopChangeColorBtn.setAttribute('disabled', '');
+  startChangeColorBtn.disabled = false;
+  stopChangeColorBtn.disabled = true;
 });
 
 function getRandomHexColor() {
