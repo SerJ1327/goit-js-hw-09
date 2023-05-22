@@ -3,6 +3,7 @@ const stopChangeColorBtn = document.querySelector('[data-stop]');
 const body = document.querySelector('body');
 
 stopChangeColorBtn.disabled = true;
+let timerId;
 
 startChangeColorBtn.addEventListener('click', e => {
   timerId = setInterval(() => {
